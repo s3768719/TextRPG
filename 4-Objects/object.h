@@ -1,8 +1,11 @@
-typedef struct object {
+#ifndef OBJECT_H_
+#define OBJECT_H_
+
+typedef struct object{
     const char *description;
     const char *tag;
     struct object *location;
-} OBJECT;
+}OBJECT;
 
 extern OBJECT objs[];
 
@@ -13,4 +16,6 @@ extern OBJECT objs[];
 #define guard       (objs + 4)
 #define player      (objs + 5)
 
-#define endOfObjs   (objs +6)
+#define endOfObjs   (objs + 6)
+
+#endif

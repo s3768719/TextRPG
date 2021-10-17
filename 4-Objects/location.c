@@ -2,11 +2,14 @@
 #include <string.h>
 #include "object.h"
 #include "location.h"
+#include "noun.h"
+#include "misc.h"
 
 void executeLook(const char* noun){
     if(noun != NULL && strcmp(noun, "around") == 0)
     {
-        printf("You are in %s.\n", "TODO");
+        printf("You are in %s.\n", player->location->description);
+        listObjectsAtLocation(player->location);
     }
     else
     {
@@ -15,6 +18,16 @@ void executeLook(const char* noun){
 }
 
 void executeGo(const char* noun){
-    
-    printf("I don't understand where you want to go.\n");
+    OBJECT *obj = getVisible("where you want to go", noun);
+    if(obj == NULL){ }
+    else if (obj->location == NULL && obj != player->location)
+    {
+        printf("OK.\n");
+        player->location = obj;
+        executeLook("around");
+    }
+    else
+    {
+        printf("I don't understand where you want to go.\n");
+    }
 }
