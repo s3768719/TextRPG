@@ -1,23 +1,12 @@
 #include <stdio.h>
 #include <string.h>
-
-struct location {
-    const char *description;
-    const char *tag;
-}
-locs[] = {
-    {"a dark dungeon, there is an exit to the forest outside", "dungeon"},
-    {"a dense forest, you see an enterance to a dark dungeon", "forest"}
-};
-
-#define numberOfLocations (sizeof locs / sizeof *locs)
-
-static unsigned locationOfPlayer = 0;
+#include "object.h"
+#include "location.h"
 
 void executeLook(const char* noun){
     if(noun != NULL && strcmp(noun, "around") == 0)
     {
-        printf("You are in %s.\n", locs[locationOfPlayer].description);
+        printf("You are in %s.\n", "TODO");
     }
     else
     {
@@ -26,23 +15,6 @@ void executeLook(const char* noun){
 }
 
 void executeGo(const char* noun){
-    unsigned i;
-    for (i = 0; i < numberOfLocations; i++)
-    {
-        if(noun != NULL && strcmp(noun, locs[i].tag) == 0)
-        {
-            if (i == locationOfPlayer)
-            {
-                printf("You can't get much closer than this.\n");
-            }
-            else
-            {
-                printf("OK.\n");
-                locationOfPlayer = i;
-             executeLook("around");
-            }
-            return;
-        }
-    }
+    
     printf("I don't understand where you want to go.\n");
 }
