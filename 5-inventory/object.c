@@ -6,6 +6,6 @@ OBJECT objs[] = {
     {"a dark, creepy cave", "cave",     NULL},
     {"a silver coin",       "silver",   field},
     {"a gold coin",         "gold",     cave},
-    {"a chunky guard",      "guard",    guard},
+    {"a chunky guard",      "guard",    cave},
     {"yourself",            "yourself", field}
 };
