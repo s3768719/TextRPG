@@ -10,7 +10,7 @@ void executeLook(const char* noun){
     {
         printf("You are in %s.\n", player->location->description);
         listObjectsAtLocation(player->location);
-        listLocationsNearby(player->location);
+
     }
     else
     {

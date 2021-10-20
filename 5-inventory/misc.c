@@ -19,22 +19,3 @@ int listObjectsAtLocation(OBJECT *location)
     return count;
 }
 
-int listLocationsNearby(OBJECT *location)
-{
-    int count = 0;
-    OBJECT *obj;
-    for (obj = objs; obj < endOfObjs; obj++)
-    {
-        if(obj != player && obj->location == NULL)
-        {
-            if(count++ == 0)
-            {
-                printf("Locations nearby are:\n");
-            }
-            if(player->location != obj){
-                printf("%s\n", obj->description);
-            }
-        }
-    }
-    return count;
-}
